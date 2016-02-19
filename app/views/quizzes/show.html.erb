@@ -1,0 +1,54 @@
+<%= form_tag(quiz_grade_path, method: "post") do %>
+
+<% @questions.each do |question| %>
+
+<br>
+<br>
+<br>
+
+	<%= content_tag :h1, "Question:#{question.question}", class: ""%>
+		<% text = "" %>
+		<% flag = false %>
+
+
+<!-- 4 questions all togeth  -->
+<!-- random number is generate and = X -->
+<!-- x = correct answer for the question -->
+<% x = rand(0..2) %>
+<% for i in (0..2) %>
+<!-- for i is not X then it will generate random answers from cards -->
+
+	<% if i == x %>
+		<% text = question.answer%>
+
+		<% flag = true %>
+
+	<% else %>
+		<% text = @cards.pop.answer%>
+		<% flag = false %>
+
+	<% end %>
+
+
+<!-- this is adding the radio buttons to the tag -->
+
+	<%= radio_button_tag(:Random_Answers, "answer") %>
+	<label for="answer"><%= "answer:#{text}" %></label>
+	<br>
+	<br>
+<% end %>
+
+	<!-- should be radio button radio_button_tag -->
+
+<br>
+<br>
+<% end %>
+<% end %>
+
+<br>
+<br>
+
+  <%= submit_tag("Submit Quiz") %>
+
+
+

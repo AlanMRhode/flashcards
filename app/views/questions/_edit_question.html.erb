@@ -1,0 +1,10 @@
+<h2>Edit a question</h2>
+<%= form_for @question do |q| %>
+		<%= q.label :Question %>
+		<%= q.text_field :question %>
+		<%= q.label :Answer %>
+		<%= q.text_field :answer %>
+		<%= q.label :Quiz_ID %>
+		<%= q.number_field :quiz_id %>
+		<%= q.submit :Create_Question %>
+	<% end %>

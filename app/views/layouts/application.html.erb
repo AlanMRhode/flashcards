@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>NYCDA Quiz App</title>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <!-- links to flipcard library -->
+  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+	<script src="https://cdn.rawgit.com/nnattawat/flip/v1.0.19/dist/jquery.flip.min.js"></script>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <!-- for the Gon gem vars to pass to JS -->
+  <%= Gon::Base.render_data %>
+  <!-- for flash messaging. Divs only appear if there are flash messages -->
+  <!-- otherwise they constantly appear if they were wrapped in their own divs -->
+  <% if flash[:notice] -%>
+    <div class="flashNotice"><p><%= flash[:notice] %><p></div>
+  <% end %>
+  <% if flash[:alert] -%>
+    <div class="flashNotice"><p><%= flash[:alert] %><p></div>
+  <% end %>
+
+<%= yield %>
+
+</body>
+</html>

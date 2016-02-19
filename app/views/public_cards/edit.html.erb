@@ -1,0 +1,13 @@
+<h1>PublicCards#edit</h1>
+<p>Find me in app/views/public_cards/edit.html.erb</p>
+
+<h2>Edit this card</h2>
+<%= form_for @publicCard do |c| %>
+	<%= c.label :Question %>
+	<%= c.text_field :question %>
+	<%= c.label :Answer %>
+	<%= c.text_field :answer %>
+	<%= c.label :Tag %>
+	<%= c.text_field :tag %>
+	<%= c.submit :Update %>
+<% end %>
